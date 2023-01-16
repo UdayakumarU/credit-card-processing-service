@@ -1,0 +1,24 @@
+{
+  "name": "credit-card-processing-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "start:dev": "nodemon ./src/server.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "swagger-jsdoc": "^6.2.7",
+    "swagger-ui-express": "^4.6.0"
+  }
+}

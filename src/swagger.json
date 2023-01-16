@@ -1,0 +1,109 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Credit Card processing Service APIs",
+        "description": "A simple Express Node JS API"
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "credit-cards",
+            "description": "APIs for credit card processing"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/v1/credit-cards": {
+            "get": {
+                "tags": [
+                    "credit-cards"
+                ],
+                "summary": "Get all credit cards",
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/credit-card"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "credit-cards"
+                ],
+                "summary": "Add new credit card",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request body",
+                        "description": "credit card details to create",
+                        "schema": {
+                            "$ref": "#/definitions/create-credit-card-request"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "schema": {
+                            "$ref": "#/definitions/credit-card"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "credit-card": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "creditCardHoldername": {
+                    "type": "string"
+                },
+                "creditCardNumber": {
+                    "type": "string"
+                },
+                "creditCardBalanceInGBP": {
+                    "type": "number"
+                },
+                "creditCardLimitInGBP": {
+                    "type": "number"
+                }
+            }
+        },
+        "create-credit-card-request": {
+            "required": [
+                "creditCardNumber"
+            ],
+            "properties": {
+                "creditCardHoldername": {
+                    "type": "string"
+                },
+                "creditCardNumber": {
+                    "type": "string"
+                },
+                "creditCardLimitInGBP": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
