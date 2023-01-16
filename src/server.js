@@ -4,8 +4,7 @@ const { creditCardRouter } = require('./routes/creditcard.routes');
 const { notFoundRouter } = require('./routes/notFound.routes');
 
 const { errorHandler } = require("./utils/errorHandler.util");
-const swaggerSpecs = require('./swagger.json');
-
+const swaggerSpecs = require('../swagger.json');
 
 const creditCardProcessingApp = express();
 /** MIDDLEWARES **/
